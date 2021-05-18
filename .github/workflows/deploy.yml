@@ -1,0 +1,27 @@
+name: "Deploy"
+on:
+  release:
+    types:
+      - "released"
+
+jobs:
+  publish: 
+    runs-on: "ubuntu-20.04"
+    steps: 
+      - name: "Checkout code"
+        uses: "actions/checkout@v2"
+        with:
+          fetch-depth: 0
+      - name: "Set up Node environment"
+        uses: "actions/setup-node@v2"
+        with:
+          node-version: '14'
+      - name: "Install dependencies"
+        run: "npm install"
+      - name: "Set up git user email"
+        run: "git config --global user.email 'maciej.laciak@gmail.com'"
+      - name: "Set up git user name" 
+        run: "git config --global user.name 'mstream'"
+      - name: "Deploy web page"
+        run: "npm deploy"
+

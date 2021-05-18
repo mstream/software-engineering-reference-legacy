@@ -5,7 +5,7 @@ on:
       - "released"
 
 jobs:
-  publish: 
+  deploy: 
     runs-on: "ubuntu-20.04"
     steps: 
       - name: "Checkout code"

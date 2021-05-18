@@ -1,8 +1,8 @@
-name: "Release"
+name: "Version"
 on:
   push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+    branches:
+      - "development"
 
 jobs:
   version: 
@@ -22,7 +22,7 @@ jobs:
         run: "git config --global user.email 'maciej.laciak@gmail.com'"
       - name: "Set up git user name" 
         run: "git config --global user.name 'mstream'"
-      - name: "Create GitHub release"
-        run: "npm run github-release"
-        env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Version code"
+        run: "npm run release"
+      - name: "Push changes"
+        run: "git push --follow-tags origin development"

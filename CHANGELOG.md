@@ -1,3 +1,5 @@
+### [1.1.1](https://github.com/mstream/software-engineering-reference/compare/1.1.0...1.1.1) (2021-05-18)
+
 ## 1.1.0 (2021-05-18)
 
 

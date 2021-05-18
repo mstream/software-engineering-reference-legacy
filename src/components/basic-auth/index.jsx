@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import {Sandbox, SandboxBody, SandboxControls} from '@local/components/sandbox'
 import {HttpRequest} from '@local/components/http-request'
-
+import CodeBlock from '@theme/CodeBlock'
 
 function toCredentialsString(id, secret) {
   return `${id}:${secret}`;
@@ -35,12 +35,18 @@ export function BasicAuth() {
   const [secret, setSecret] = React.useState('password');
   const encodedCredentials = base64Encode(toCredentialsString(id,secret)) 
   return (
-    <Sandbox title="md5">
+    <Sandbox title="Basic Authorization">
       <SandboxBody>
           <CredentialsPreview
             id={id}
             secret={secret}
           />
+          <CodeBlock 
+            className="http"
+            title="Http Request"
+          >
+            {}
+          </CodeBlock>
           <HttpRequest
             headers={{'Authorization': `Basic ${encodedCredentials}`}}
             host="www.example.com"

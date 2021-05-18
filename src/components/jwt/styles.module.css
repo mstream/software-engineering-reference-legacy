@@ -1,0 +1,15 @@
+.token {
+  font-family: monospace;
+}
+
+.header {
+  color: var(--ifm-color-info);
+}
+
+.payload {
+  color: var(--ifm-color-white);
+}
+
+.signature {
+  color: var(--ifm-color-success);
+}

@@ -1,0 +1,93 @@
+---
+title: Conventional Commits
+sidebar_position: 2
+---
+
+## Format
+```plaintext
+{{type}}{{optional_scope}}: {{description}}
+
+{{optional_body}}
+
+{{optional_footer}}
+```
+
+## Commit Message Template
+
+The `commit.template` Git option allow us to be presented with a custom
+message template whenever we execute a `git commit` command.
+The value of that option is either an absolute or a relative path to
+the file containing the template. If a relative path is used, the
+repository in which the command got executed will be used as the base
+directory. Therefore, the template can be versioned along the content
+of the repository itself.
+
+```plaintext
+# :============================ COMMIT ================================:
+# |--- SUBJECT --------------------------------------------------------|
+# |                                                                    |
+# | <type>[(scope)]: <description>                                     |
+# |                                                                    |
+# | Type can be:                                                       |
+# |     doc      (changes to documentation)                            |
+# |     feat     (new feature)                                         |
+# |     fix      (bug fix)                                             |
+# |     license  (edits regarding licensing)                           |
+# |     refactor (refactoring code)                                    |
+# |     revert   (reverting changes)                                   |
+# |     style    (formatting, missing semi colons, etc.)               |
+# |     test     (adding or refactoring tests)                         |
+# |                                                                    |
+# | Examples:                                                          |
+# |     feat(auth): Enable basic authentication                        |
+# |     fix(conf): Correct typo in the configuration                   |
+# |                                                                    |
+# |<--- SUBJECT START ------- under 50 chars --->|<------------------->|
+#################################################XXXXXXXXXXXXXXXXXXXXXXX
+
+#################################################XXXXXXXXXXXXXXXXXXXXXXX
+# |<--- SUBJECT END --------- under 50 chars --->|<------------------->|
+# .---- keep the empty line bellow ------------------------------------.
+
+# .--- BODY -----------------------------------------------------------.
+# |                                                                    |
+# | [- body line 1]                                                    |
+# | [- body line 2]                                                    |
+# | [.............]                                                    |
+# | [- body line n]                                                    |
+# |                                                                    |
+# | Example:                                                           |
+# |     - add README file to show how to use the library               |
+# |     - add CONTRIBUTING file to establish coding style conventions  |
+# |                                                                    |
+# |<--- BODY START -------------------------------- under 72 chars --->|
+#######################################################################X
+
+#######################################################################X
+# |<--- BODY END -----------------------------------under 72 chars --->|
+# .---- keep the empty line bellow ------------------------------------.
+
+# .--- FOOTER ---------------------------------------------------------.
+# |                                                                    |
+# | [footer line 1]                                                    |
+# | [footer line 2]                                                    |
+# | [.............]                                                    |
+# | [footer line n]                                                    |
+# |                                                                    |
+# | Example:                                                           |
+# |     Co-authored-by: Bob <bob@mail.com>                             |
+# |     Signed-off-by: Alice <alice@mail.com>                          |
+# |     Closes #34                                                     |
+# |     BREAKING CHANGE: deprecated API is removed                     |
+# |<--- FOOTER START ------------------------------ under 72 chars --->|
+#######################################################################X
+
+#######################################################################X
+# |<--- FOOTER END ---------------------------------under 72 chars --->|
+# :====================================================================:
+```
+
+## Specification
+
+The full specification can be found at
+[this](https://www.conventionalcommits.org/en/v1.0.0/) website. 

@@ -1,0 +1,11 @@
+.hashDigest {
+  font-family: monospace;
+}
+
+.colliding {
+  color: var(--ifm-color-danger);
+}
+
+.nonColliding {
+  color: var(--ifm-color-success);
+}

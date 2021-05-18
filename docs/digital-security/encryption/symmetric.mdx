@@ -1,0 +1,32 @@
+---
+title: Symmetric Encryption
+sidebar_position: 1
+---
+
+import {CaesarCipher} from '@local/components/caesar-cipher'
+
+## Overview {#overview}
+
+alg(m,k) -> c
+alg(c,k) -> m
+
+## Cesar cipher {#cesar-cipher}
+
+For key=1
+abc -> bce
+bce -> abc
+
+For key=2
+abc -> cef
+cef -> abc
+
+For key=3
+abc -> efg
+efg -> abc
+
+...
+
+## Sandbox
+
+<CaesarCipher/>
+

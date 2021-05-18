@@ -1,0 +1,25 @@
+# Blobs
+
+Blobs are binaries representing file contents. They are not associated
+with any particular file name or any other attribute.
+
+## Hash of a Blob
+
+The hash is from a 'blob' keyword, followed by a space character,
+the of the contents in bytes,
+a [NULL](https://en.wikipedia.org/wiki/Null_character) character
+and the file contents itself.
+That is to decrease possibility of hash collision with different
+types of objects.
+The most obvious one would be an empty blob with an
+empty [tree](./trees).
+
+```bash
+echo -e -n 'blob 13\0BLOB_CONTENTS' | shasum -a 1
+# >>> b9bb0bbb048fcfb90a6f879bd512b8548a9e576b -
+```
+
+```bash
+echo -n 'BLOB_CONTENTS' | git hash-object --stdin -t blob
+# >>> b9bb0bbb048fcfb90a6f879bd512b8548a9e576b
+```

@@ -1,0 +1,31 @@
+---
+title: HTTP Authentication
+sidebar_position: 2
+---
+
+import {BasicAuth} from '@local/components/basic-auth';
+
+## Basic 
+
+:::caution
+
+The fact credentials are encoded does not provide any protection and
+therefore this kind of authencitation should not be used for
+communication over unencrypted protocol.
+
+:::
+
+### Sandbox
+
+<BasicAuth/>
+
+## Bearer 
+
+```http title="HTTP Request"
+GET /index.html HTTP/1.1
+Host: www.example.com
+Authorization: Bearer <token>
+```
+
+An example of token-based authentication is [JSON Web Token](../jwt).
+

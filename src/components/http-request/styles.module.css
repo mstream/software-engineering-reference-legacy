@@ -1,0 +1,11 @@
+.envelope {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: var(--ifm-color-gray-500);
+}
+
+.envelope p { margin-bottom: 0.125rem; }
+
+.envelope p:last-child { margin-bottom: 0; }
+
+

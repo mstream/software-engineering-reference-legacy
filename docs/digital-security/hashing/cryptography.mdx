@@ -1,0 +1,74 @@
+---
+title: Cryptographical Hashing
+sidebar_position: 2
+---
+
+import {HashCollisions} from '@local/components/hash-collisions'
+
+## Properties {#properties}
+
+Cryptoraphical hash functions, in addition to core features of 
+[general hash functions](overview)
+
+### Pre-image resistance {#pre-image-resistance}
+
+Given hash digest $h$ it should be difficult to find a message 
+$m$ that that $h = \operatorname{hash}(m)$
+
+### Second pre-image resistance {#second-pre-image-resistance}
+
+Given a message $m_1$ it should be difficult to find a different message
+$m_2$ such that $\operatorname{hash}(m_1) = \operatorname{hash}(m_2)$
+
+### Collision resistance {#collision-resistance}
+
+It should be difficult to find pairs of $m_1$ and $m_2$ that 
+$\operatorname{hash}(m_1) = \operatorname{hash}(m_2)$
+
+## Examples of algorithms {#examples-of-algorithms}
+
+* MD5
+* SHA-1
+* SHA-2 (SHA-256, SHA-512)
+* SHA-3
+* Whirpool
+
+## Passwords hashing {#passwords-hashing}
+
+To protect users passwords from being exposed, it is desirable to store 
+only their digests. The [pre-image resistance](#pre-image-resistance) makes it infeasible to 
+restore their original values based on them. Despite the fact of 
+not possesing the original password, the autentication is still possible
+by asking the user to provide their password, applying the same hash
+function to it, and comparing the result against the stored digest.
+The [collision resistance](#collision-resistance) gives a reasurance that if digest
+match it is virtually certain that the user presented the original 
+password. Theoretically though, such an authentication process would be
+successful for any password value resulting in the stored hash digest.
+
+### Rainbow tables {#rainbow-tables}
+Based on the fact that all cryptographic hash functions are
+deterministic, it is possible to pre-compute results for a subset of 
+inputs. For the brute-force type of attacks, usually the most probable
+inputs are subject of that computation, such as words from encyclopedic
+dictionaries or short sequences of characters. The existance of such
+datbases, as well known as _rainbow tables_ makes short passwords almost
+instantly identifiable for popular hashing algorithms, regardles of 
+their strength.
+
+### Password salting {#password-salting}
+One of techniques which prevents from reusing pre-computed hash digests
+is a technique called _password salting_. It requires storing a large, 
+random serie of characters, a salt, along the hash digest. During the 
+initial hash digest generation, the salt is appender or prepended to 
+the original password before passing it to the hashing function.
+Exactly the same process is followed during the password verification.
+Even though the salt is non-secret, and therefore does not significantly
+impede guessing the password or finding a collision, it prevents, to a
+large extend, from re-using previously computed hash digests. That
+increases cost of reverse-engineering passwords as each of them has to
+be brute-forced individually.
+
+## Sandbox {#sandbox}
+
+<HashCollisions/>

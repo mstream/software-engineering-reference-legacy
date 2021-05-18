@@ -1,0 +1,45 @@
+---
+title: Message Authorization
+sidebar_position: 2
+---
+
+## OAuth 2.0 {#oauth-20}
+
+### Roles {#roles}
+
+* Resource Owner - eg. GitHub user
+* Resource Server - eg. GitHub
+* Client - eg. Code Wars web application
+* Authorization Server -
+
+### Authorization Code Flow {#authorization-code-flow}
+
+From __Code Wars__ web application:
+`GET https://github.com/login/oauth/authorize`
+
+input:
+* client_id - __GitHub__ identifier of __Code Wars__ application
+* response_type - eg. code
+* redirect_uri - where the browser has to come back
+* scope - list of permissions
+
+output: 
+* code
+
+> Github renders a page which shows who is requesting which permissions
+> and asks for a confirmation
+> When accepted the browser goes back to a given redirect URI with 
+> code in the query string
+
+From __Code Wars__ backend application:
+`POST https://github.com/login/oauth/access_token`
+
+input:
+* code
+
+output:
+* access_token
+
+[article](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)[](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
+
+## OpenID Connect {#openid-connect}

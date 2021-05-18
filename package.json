@@ -1,0 +1,49 @@
+{
+  "name": "digital-security-reference",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-beta.0",
+    "@docusaurus/plugin-content-docs": "2.0.0-beta.0",
+    "@docusaurus/theme-classic": "2.0.0-beta.0",
+    "@mdx-js/react": "^1",
+    "@svgr/webpack": "^5",
+    "buffer": "^6",
+    "clsx": "^1",
+    "crypto-browserify": "^3",
+    "file-loader": "^6",
+    "jose-browser-runtime": "^3",
+    "mermaid": "^8",
+    "node-polyfill-webpack-plugin": "^1",
+    "react": "^17",
+    "react-dom": "^17",
+    "rehype-katex": "^4",
+    "remark-math": "^3",
+    "remark-mermaid": "~0.2",
+    "stream-browserify": "^3",
+    "url-loader": "^4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

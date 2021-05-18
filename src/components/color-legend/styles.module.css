@@ -1,0 +1,7 @@
+.container {
+  border-color: var(--ifm-color-gray-500);
+  border-style: dashed;
+  border-width: 1px;
+  width: fit-content;
+}
+

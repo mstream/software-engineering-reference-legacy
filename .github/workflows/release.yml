@@ -1,0 +1,23 @@
+name: "Release"
+on:
+  push:
+    branches:
+      - "development"
+
+jobs:
+  publish: 
+    runs-on: "ubuntu-20.04"
+    steps: 
+      - name: "Checkout code"
+        uses: "actions/checkout@v2"
+        with:
+          fetch-depth: 0
+          ref: "development"
+      - name: "Set up Node environment"
+        uses: "actions/setup-node@v2"
+        with:
+          node-version: '14'
+      - name: "Install dependencies"
+        run: "npm install"
+      - name: "Release code"
+        run: "npm release"

@@ -1,11 +1,11 @@
-name: "Release"
+name: "Release and Deploy"
 on:
   push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+    branches:
+      - "development"
 
 jobs:
-  version: 
+  release-and-deploy: 
     runs-on: "ubuntu-20.04"
     steps: 
       - name: "Checkout code"
@@ -22,7 +22,13 @@ jobs:
         run: "git config --global user.email 'maciej.laciak@gmail.com'"
       - name: "Set up git user name" 
         run: "git config --global user.name 'mstream'"
+      - name: "Release code"
+        run: "npm run release"
+      - name: "Push changes"
+        run: "git push --follow-tags origin development"
       - name: "Create GitHub release"
         run: "npm run github-release"
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Deploy web app"
+        run: "npm deploy"

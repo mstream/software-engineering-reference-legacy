@@ -10,8 +10,7 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
-    "release": "standard-version",
-    "github-release": "conventional-github-releaser -p angular -r 0",
+    "release": "release-it",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
@@ -36,8 +35,8 @@
     "url-loader": "^4"
   },
   "devDependencies": {
-    "conventional-github-releaser": "^3",
-    "standard-version": "^9"
+    "@release-it/conventional-changelog": "^2",
+    "release-it": "^14"
   },
   "browserslist": {
     "production": [
@@ -51,49 +50,36 @@
       "last 1 safari version"
     ]
   },
-  "standard-version": {
-    "header": "Changelog",
-    "packageFiles": [
-      {
-        "filename": "package.json",
-        "type": "json"
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}",
+      "requireCleanWorkingDir": true
+    },
+    "github": {
+      "release": true,
+      "releaseName": "Release ${version}",
+      "tokenRef": "GITHUB_TOKEN"
+    },
+    "npm": {
+      "publish": "false"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            }
+          ]
+        }
       }
-    ],
-    "bumpFiles": [
-      {
-        "filename": "package.json",
-        "type": "json"
-      }
-    ],
-    "types": [
-      {
-        "type": "feat",
-        "section": "Features"
-      },
-      {
-        "type": "fix",
-        "section": "Bug Fixes"
-      },
-      {
-        "type": "chore",
-        "hidden": true
-      },
-      {
-        "type": "docs",
-        "hidden": true
-      },
-      {
-        "type": "style",
-        "hidden": true
-      },
-      {
-        "type": "refactor",
-        "hidden": true
-      },
-      {
-        "type": "test",
-        "hidden": true
-      }
-    ]
+    }
   }
 }

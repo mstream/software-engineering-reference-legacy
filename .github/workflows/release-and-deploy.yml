@@ -17,14 +17,19 @@ jobs:
         with:
           node-version: '14'
       - name: "Install dependencies"
-        run: "npm install"
+        run: "npm ci"
       - name: "Set up git user email"
         run: "git config --global user.email 'maciej.laciak@gmail.com'"
       - name: "Set up git user name" 
         run: "git config --global user.name 'mstream'"
-      - name: "Release code"
+      - name: "Create a GitHub release"
         run: "npm run release -- --ci"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: "Deploy web app"
-        run: "npm run deploy"
+      - name: "Build web application"
+        run: "npm run build"
+      - name: "Deploy to GitHub Pages"
+        uses: "peaceiris/actions-gh-pages@v3"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          publish_dir: "./build"

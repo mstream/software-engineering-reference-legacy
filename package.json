@@ -32,7 +32,6 @@
     "react-dom": "^17",
     "rehype-katex": "^4",
     "remark-math": "^3",
-    "remark-mermaid": "~0.2",
     "stream-browserify": "^3",
     "url-loader": "^4"
   },

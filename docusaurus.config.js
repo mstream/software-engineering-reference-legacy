@@ -3,7 +3,6 @@
 const path = require('path');
 const rehypeKatex = require('rehype-katex');
 const remarkMath = require('remark-math');
-const remarkMermaid = require('remark-mermaid');
 
 module.exports = {
   baseUrl: '/',
@@ -55,7 +54,6 @@ module.exports = {
         ],
         remarkPlugins: [
           remarkMath,
-          [remarkMermaid, {simple: true}],
         ],
         routeBasePath: '/',
       }

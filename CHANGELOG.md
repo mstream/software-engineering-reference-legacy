@@ -1,4 +1,11 @@
 Changelog
+### [1.0.6](https://github.com/mstream/software-engineering-reference/compare/v1.0.5...v1.0.6) (2021-05-18)
+
+
+### Bug Fixes
+
+* **config:** remove unnecessary remark plugin ([857266f](https://github.com/mstream/software-engineering-reference/commit/857266f75c8b2004ce77265fe276cada6e00fcd8))
+
 ### [1.0.5](https://github.com/mstream/software-engineering-reference/compare/v1.0.4...v1.0.5) (2021-05-18)
 
 ### [1.0.4](https://github.com/mstream/software-engineering-reference/compare/v1.0.3...v1.0.4) (2021-05-18)

@@ -1,6 +1,6 @@
 {
   "name": "digital-security-reference",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -65,13 +65,34 @@
       }
     ],
     "types": [
-      {"type": "feat", "section": "Features"},
-      {"type": "fix", "section": "Bug Fixes"},
-      {"type": "chore", "hidden": true},
-      {"type": "docs", "hidden": true},
-      {"type": "style", "hidden": true},
-      {"type": "refactor", "hidden": true},
-      {"type": "test", "hidden": true}
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "hidden": true
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "hidden": true
+      },
+      {
+        "type": "test",
+        "hidden": true
+      }
     ]
   }
 }

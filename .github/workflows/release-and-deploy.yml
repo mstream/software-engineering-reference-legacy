@@ -31,4 +31,4 @@ jobs:
         env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: "Deploy web app"
-        run: "npm deploy"
+        run: "npm run deploy"

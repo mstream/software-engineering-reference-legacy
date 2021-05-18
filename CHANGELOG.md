@@ -1,4 +1,11 @@
 Changelog
+### [1.0.3](https://github.com/mstream/software-engineering-reference/compare/v1.0.2...v1.0.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* **docs:** reorder git and security chapters ([0b937cc](https://github.com/mstream/software-engineering-reference/commit/0b937ccdf196476d70b2c5cd7a33a587cf6943f9))
+
 ### [1.0.2](https://github.com/mstream/software-engineering-reference/compare/v1.0.1...v1.0.2) (2021-05-18)
 
 ### [1.0.1](https://github.com/mstream/software-engineering-reference/compare/v1.0.0...v1.0.1) (2021-05-18)

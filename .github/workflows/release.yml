@@ -20,4 +20,4 @@ jobs:
       - name: "Install dependencies"
         run: "npm install"
       - name: "Release code"
-        run: "npm release"
+        run: "npm run release"

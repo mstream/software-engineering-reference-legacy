@@ -19,5 +19,9 @@ jobs:
           node-version: '14'
       - name: "Install dependencies"
         run: "npm install"
+      - name: "Set up git user email"
+        run: "git config --global user.email 'maciej.laciak@gmail.com'"
+      - name: "Set up git user name" 
+        run: "git config --global user.name 'mstream'"
       - name: "Release code"
         run: "npm run release"

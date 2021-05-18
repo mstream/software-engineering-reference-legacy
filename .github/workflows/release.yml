@@ -5,14 +5,13 @@ on:
       - "development"
 
 jobs:
-  publish: 
+  release: 
     runs-on: "ubuntu-20.04"
     steps: 
       - name: "Checkout code"
         uses: "actions/checkout@v2"
         with:
           fetch-depth: 0
-          ref: "development"
       - name: "Set up Node environment"
         uses: "actions/setup-node@v2"
         with:
@@ -25,3 +24,5 @@ jobs:
         run: "git config --global user.name 'mstream'"
       - name: "Release code"
         run: "npm run release"
+      - name: "Push changes"
+        run: "git push --follow-tags origin development"

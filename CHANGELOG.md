@@ -1,3 +1,10 @@
+### [1.1.2](https://github.com/mstream/software-engineering-reference/compare/1.1.1...1.1.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* **ssr:** add a client module with globals ([440a1c1](https://github.com/mstream/software-engineering-reference/commit/440a1c11a1fa72f6343728b7cd4bd5d56d420f73))
+
 ### [1.1.1](https://github.com/mstream/software-engineering-reference/compare/1.1.0...1.1.1) (2021-05-18)
 
 ## 1.1.0 (2021-05-18)

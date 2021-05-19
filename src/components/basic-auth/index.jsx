@@ -41,12 +41,6 @@ export function BasicAuth() {
             id={id}
             secret={secret}
           />
-          <CodeBlock 
-            className="http"
-            title="Http Request"
-          >
-            {}
-          </CodeBlock>
           <HttpRequest
             headers={{'Authorization': `Basic ${encodedCredentials}`}}
             host="www.example.com"

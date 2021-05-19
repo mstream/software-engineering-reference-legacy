@@ -6,6 +6,7 @@ const remarkMath = require('remark-math');
 
 module.exports = {
   baseUrl: '/',
+  clientModules: [  require.resolve('./src/globals.js')],
   favicon: 'img/favicon.ico',
   i18n: {
     defaultLocale: 'en',

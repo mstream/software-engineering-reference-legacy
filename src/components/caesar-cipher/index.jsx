@@ -42,11 +42,7 @@ function transform({cipherKey, text}) {
         return char;
       }
       const charCode = text.charCodeAt(idx) - charCodeBase;
-      console.log("charcode",charCode)
-      console.log("charcodeBase",charCodeBase)
-      console.log("cipherKey",cipherKey)
       const transformedCharCode = charCodeBase + (charCode + cipherKey) % charset.length;
-      console.log("transformed", transformedCharCode)
       return String.fromCharCode(transformedCharCode);
     })
     .join('');

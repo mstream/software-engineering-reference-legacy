@@ -1,9 +1,9 @@
 import {Buffer} from 'buffer';
 import React from 'react';
 import clsx from 'clsx';
-import { SignJWT } from 'jose-browser-runtime/jwt/sign'
+import { SignJWT } from 'jose/jwt/sign'
+import { generateSecret } from 'jose/util/generate_secret'
 import CodeBlock from '@theme/CodeBlock'
-import { generateSecret } from 'jose-browser-runtime/util/generate_secret'
 import { ColorLegend } from '@local/components/color-legend'
 import { HttpRequest } from '@local/components/http-request'
 import { Sandbox, SandboxBody, SandboxControls } from '@local/components/sandbox'

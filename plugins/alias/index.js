@@ -18,6 +18,13 @@ function configureWebpack() {
         'src', 
         'diagrams'
         ),
+        '@local/utils': path.resolve(
+          __dirname, 
+         '..', 
+        '..', 
+        'src', 
+        'utils'
+        ),
       }
     }
   } 

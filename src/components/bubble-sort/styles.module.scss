@@ -1,0 +1,127 @@
+$animation-duration: 0.25s;
+$comparison-results: failed, passed;
+$directions: left, right;
+$item-width: 2em;
+$items-count: 12; 
+
+@each $direction in $directions {
+  @for $distance from 1 to $items-count  {
+    @keyframes move-#{$direction}-#{$distance} {
+      0% {
+        transform: translate(0, -50%); 
+      }
+      100% {
+        @if $direction == left {
+          transform: translate(-1 * $distance * 100%, -50%);
+        }
+        @if $direction == right {
+          transform: translate($distance * 100%, -50%);
+        }
+      }
+    }
+
+    @keyframes swap-#{$direction}-#{$distance} {
+      @if $direction == left {
+        0% {transform: translate(0, 0); }
+        25% {transform: translate(0, 100%);}
+        75% {transform: translate(-1 * $distance * 100%, 100%);}
+        100% {transform: translate(-1 * $distance * 100%, 0);}
+      }
+      @if $direction == right {
+        0% {transform: translate(0, 0); }
+        25% {transform: translate(0, -100%);}
+        75% {transform: translate($distance * 100%, -100%);}
+        100% {transform: translate($distance * 100%, 0);}
+      }
+    }
+
+    .swapping-#{$direction}-by-#{$distance} {
+      animation-name: swap-#{$direction}-#{$distance};
+    }
+    
+    .moving-#{$direction}-by-#{$distance} {
+      animation-name: move-#{$direction}-#{$distance};
+    }
+  }
+}
+
+@for $index from 0 to $items-count {
+  .item:nth-child(#{$index + 1}) {
+    left: $index * $item-width;
+  }
+
+  .eye-0-at-#{$index} {
+    left: $index * $item-width;
+  }
+  
+  .eye-1-at-#{$index} {
+    left: $index * $item-width;
+  }
+}
+
+
+@each $comparison-result in $comparison-results { 
+  @keyframes comparison-#{$comparison-result} {
+    0% {
+      border-color: var(--ifm-color-gray-100);
+      border-width: 1px;
+    }
+    50% {
+      @if $comparison-result == failed {
+        border-color: var(--ifm-color-danger);
+      }
+      @if $comparison-result == passed {
+        border-color: var(--ifm-color-success);
+      }
+      border-width: 2px;
+    }
+    100% {
+      border-color: var(--ifm-color-gray-100);
+      border-width: 1px;
+    }
+  }
+  
+  .comparing-#{$comparison-result} {
+    animation-name: comparison-#{$comparison-result};
+  }
+}
+
+
+
+.container {
+  position: relative;
+}
+
+.eye {
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  font-size: $item-width / 2;
+  height: $item-width;
+  opacity: 0.75;
+  position: absolute;
+  text-shadow: 1px 0 0 yellow, 0 1px 0 yellow, -1px 0 0 yellow, 0 -1px 0 yellow;
+  transform: translateY(-50%);
+  width: $item-width;
+}
+
+.item {
+  animation-duration: $animation-duration;
+  animation-fill-mode: forwards;
+  background-color: var(--ifm-color-gray-500);
+  border-color: var(--ifm-color-gray-100);
+  border-radius: 10%;
+  border-style: solid;
+  border-width: 1px;
+  color: var(--ifm-color-gray-900);
+  height: $item-width;
+  position: absolute;
+  width: $item-width;
+}
+
+.inOrder {
+  background-color: var(--ifm-color-success);
+}
+
+.progressBar {
+  width: $item-width * $items-count;
+}

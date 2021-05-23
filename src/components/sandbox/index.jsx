@@ -12,7 +12,7 @@ export function SandboxBody({children}) {
 
 export function SandboxControls({children}) {
   return (
-    <div className={clsx("card__footer")}>
+    <div className={clsx("card__footer", styles.controlsContainer)}>
       <hr/>
       {children}
     </div>

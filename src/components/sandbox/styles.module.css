@@ -1,5 +1,8 @@
 .container {
   overflow: visible;
-  overflow-x: scroll;
+}
+
+.controlsContainer {
+  overflow: visible;
 }
 

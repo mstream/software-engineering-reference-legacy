@@ -117,7 +117,7 @@ function EncodedTokenPreview({token}) {
 }
 
 export function Jwt() {
-  const [isMounted, setIsMounted] = React.useState(true);
+  const isMountedRef = React.useRef(false);
   const [issuer, setIssuer] = React.useState('alice');
   const [secret, setSecret] = React.useState(null);
   const [secretText, setSecretText] = React.useState(null);
@@ -126,8 +126,10 @@ export function Jwt() {
 
   React.useEffect(
     () => {
-      setIsMounted(true)
-      return () => setIsMounted(false)
+      isMountedRef.current = true;
+      return () => {
+        isMountedRef.current = false;
+      }
     },
     []
   )
@@ -139,7 +141,7 @@ export function Jwt() {
           .then(secret => {
               crypto.subtle.exportKey("raw", secret)
                 .then(rawSecret => {
-                  if (isMounted) {
+                  if (isMountedRef.current) {
                     setSecret(secret)
                     setSecretText(Buffer.from(
                         rawSecret, 
@@ -162,7 +164,7 @@ export function Jwt() {
             secret,
             subject,
         }).then(token => {
-          if (isMounted) {
+          if (isMountedRef.current) {
             setToken(token)
           }
         })

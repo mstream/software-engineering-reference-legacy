@@ -45,6 +45,7 @@ module.exports = {
   plugins: [
     path.resolve(__dirname, 'plugins', 'alias'),
     path.resolve(__dirname, 'plugins', 'crypto'),
+    "docusaurus-plugin-sass",
     [
       "@docusaurus/plugin-content-docs",
       {

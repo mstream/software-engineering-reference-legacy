@@ -1,0 +1,24 @@
+---
+title: Bubble Sort
+sidebar_position: 1
+---
+
+import {BubbleSort} from "@local/components/bubble-sort"
+
+## Algorithm
+
+```javascript title="bubble-sort.js"
+for (let i = items.length - 1; i > 0; i--) {
+  for (let j = 0; j < i; j++) {
+    if (items[j] > items[j + 1]) {
+      const tmp = items[j];
+      items[j] = items[j + 1];
+      items[j + 1] = tmp;
+    }
+  }
+}
+```
+
+## Sandbox
+
+<BubbleSort/>

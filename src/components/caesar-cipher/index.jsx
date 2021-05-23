@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Sandbox, SandboxBody, SandboxControls } from '@local/components/sandbox'
+import { DropdownInput } from '@local/components/dropdown-input'
 import styles from './styles.module.css'
 
 const charset = [
@@ -146,14 +147,12 @@ export function CaesarCipher() {
         </div>
         <div className={clsx('row')}>
           <div className={clsx('col col--12')}>
-            <div className={clsx('dropdown dropdown--hoverable')}>
-              <button className={clsx('button button--primary')}>
-                {`Key: ${activeCipherKey}`}
-              </button>
-              <ul className={("dropdown__menu")}>
-                {cipherKeyEls}  
-              </ul>
-            </div>
+            <DropdownInput 
+              activeValue={activeCipherKey}
+              label="Key"
+              onValueSelected={cipherKey => setActiveCipherKey(cipherKey)} 
+              values={cipherKeys}
+            />
           </div>
         </div>
       </div>

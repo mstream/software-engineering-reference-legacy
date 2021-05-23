@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/mstream/software-engineering-reference/compare/1.1.2...1.2.0) (2021-05-23)
+
+
+### Features
+
+* **chapter:** draft a bubble sort chapter ([ffd6dcd](https://github.com/mstream/software-engineering-reference/commit/ffd6dcd9cc30c57c63e393adc9435075d6f35716))
+
 ### [1.1.2](https://github.com/mstream/software-engineering-reference/compare/1.1.1...1.1.2) (2021-05-19)
 
 

@@ -5,7 +5,7 @@ const rehypeKatex = require('rehype-katex');
 const remarkMath = require('remark-math');
 
 module.exports = {
-  baseUrl: '/',
+  baseUrl: '/software-engineering-reference/',
   clientModules: [  require.resolve('./src/globals.js')],
   favicon: 'img/favicon.ico',
   i18n: {

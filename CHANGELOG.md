@@ -1,3 +1,10 @@
+### [1.2.2](https://github.com/mstream/software-engineering-reference/compare/1.2.1...1.2.2) (2021-05-24)
+
+
+### Bug Fixes
+
+* **conf:** set the baseUrl to the gh project name ([ea2faf1](https://github.com/mstream/software-engineering-reference/commit/ea2faf16426427cce48337cc48f917bc28817eff))
+
 ### [1.2.1](https://github.com/mstream/software-engineering-reference/compare/1.2.0...1.2.1) (2021-05-24)
 
 

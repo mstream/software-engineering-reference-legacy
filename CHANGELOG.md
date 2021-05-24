@@ -1,3 +1,10 @@
+### [1.2.1](https://github.com/mstream/software-engineering-reference/compare/1.2.0...1.2.1) (2021-05-24)
+
+
+### Bug Fixes
+
+* **ssr:** correct the way ssr is detected ([4957f6b](https://github.com/mstream/software-engineering-reference/commit/4957f6b1d999ed5d0955e19c0cb2df421dd76fa7))
+
 ## [1.2.0](https://github.com/mstream/software-engineering-reference/compare/1.1.2...1.2.0) (2021-05-23)
 
 

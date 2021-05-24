@@ -206,7 +206,7 @@ function Animation({items}) {
 
   React.useEffect(
     () => {
-      const interval = setInterval(() => {
+      const interval = window.setInterval(() => {
           if (isMountedRef.current) {
             dispatch({type: UPDATE_ANIMATION})
           }
@@ -214,7 +214,7 @@ function Animation({items}) {
         animationInterval
       );
       return () => {
-        clearInterval(interval);
+        window.clearInterval(interval);
       }
     }, 
     []
@@ -249,7 +249,11 @@ function Animation({items}) {
     const delta = idx === 0 ? firstEyeIndexDelta : secondEyeIndexDelta;
 
     if (delta === 0) {
-      return null;
+      if (idx === firstComparedItemIndex || idx === secondComparedItemIndex) {
+        return getClassName(`eye-comparing-${transition.payload ? 'passed': 'failed'}`);
+      } else {
+        return null;
+      }
     }
 
     const direction = delta < 0 ? 'left' : 'right'; 
@@ -267,7 +271,7 @@ function Animation({items}) {
       if (idx !== firstComparedItemIndex && idx !== secondComparedItemIndex) {
         return null
       } else {
-        return getClassName(`comparing-${transition.payload ? 'passed': 'failed'}`);
+        return getClassName(`item-comparing-${transition.payload ? 'passed': 'failed'}`);
       }
     }
 

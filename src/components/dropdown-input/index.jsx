@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 export function DropdownInput({
   activeValue, 
   className,
+  id,
   label, 
   onValueSelected, 
   values, 
@@ -17,7 +18,7 @@ export function DropdownInput({
       <li key={idx}>
         <a 
           className={clsx('dropdown__link')}
-          href="#"
+          href={`#${id}`}
           onClick={() => onValueSelected(value)}
         >
           {`${prefix} ${value}`}
@@ -30,6 +31,7 @@ export function DropdownInput({
     <div
       {...otherProps}
       className={clsx('dropdown', 'dropdown--hoverable', className)}
+      id={id}
     >
       <button className={clsx('button', 'button--primary')}>
         {`${label ? label + ': ' : ''}${activeValue}`}
@@ -48,6 +50,7 @@ DropdownInput.propTypes = {
   ]).isRequired,
   className: PropTypes.string,
   label: PropTypes.string,
+  id: PropTypes.string.isRequired,
   onValueSelected: PropTypes.func.isRequired,
   values: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string, 

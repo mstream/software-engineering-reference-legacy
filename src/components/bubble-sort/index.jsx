@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import clsx from 'clsx';
 import {DropdownInput} from '@local/components/dropdown-input'
 import { Sandbox, SandboxBody, SandboxControls } from '@local/components/sandbox'
@@ -396,4 +396,4 @@ export function BubbleSort() {
   )
 }
 
-BubbleSort.propTypes = {}
+BubbleSort.propTypes = {};

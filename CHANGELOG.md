@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/mstream/software-engineering-reference/compare/1.3.0...1.4.0) (2021-05-25)
+
+
+### Features
+
+* **ui:** add the website logo ([e87d1e6](https://github.com/mstream/software-engineering-reference/commit/e87d1e6583123a668af880104ec8aac9d3d4438c))
+
 ## [1.3.0](https://github.com/mstream/software-engineering-reference/compare/1.2.2...1.3.0) (2021-05-25)
 
 

@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/mstream/software-engineering-reference/compare/1.2.2...1.3.0) (2021-05-25)
+
+
+### Features
+
+* **chapter:** extend the bubble sort description ([316137d](https://github.com/mstream/software-engineering-reference/commit/316137df48f6833eb2bb53f66660fb94835fb3eb))
+
 ### [1.2.2](https://github.com/mstream/software-engineering-reference/compare/1.2.1...1.2.2) (2021-05-24)
 
 

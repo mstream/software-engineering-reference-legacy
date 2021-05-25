@@ -1,15 +1,19 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css'
 import crypto from 'crypto'
 import {ColorLegend} from '@local/components/color-legend'
 import {Sandbox, SandboxBody, SandboxControls} from '@local/components/sandbox'
+import {classNameRetriever} from '@local/utils/style'
+import styles from './styles.module.css'
+
+const getClassName = classNameRetriever(styles);
 
 const algorithms = {
-  md5: "MD5",
-  sha1: "SHA-1",
-  sha256: "SHA-256",
-  sha512: "SHA-512",
+  md5: 'MD5',
+  sha1: 'SHA-1',
+  sha256: 'SHA-256',
+  sha512: 'SHA-512',
 }
 
 function toHashDigest({algorithm, inputString}) {
@@ -26,6 +30,36 @@ function toHashDigest({algorithm, inputString}) {
   ]);
 }
 
+function BitsPreview({bitChars, otherBitChars}) {
+  const bitCharEls = bitChars
+    .map((bitChar, idx) => {
+        const className = bitChar === otherBitChars[idx] ?  
+            getClassName('colliding') :
+            getClassName('nonColliding');
+        return (
+          <span 
+            key={idx} 
+            className={clsx(className)}
+          >
+            {bitChar}
+          </span>
+        );
+    });
+
+  return (
+    <p>
+      <strong className={getClassName('hashDigest')}>
+        {bitCharEls}
+      </strong>
+    </p>
+  )
+}
+
+BitsPreview.propTypes = {
+  bitChars: PropTypes.arrayOf(PropTypes.string).isRequired, 
+  otherBitChars: PropTypes.arrayOf(PropTypes.string).isRequired, 
+};
+
 function HashDigestPreview({algorithm, input1, input2}) {
   const hashDigestBits1 = toHashDigest({
     algorithm,
@@ -35,45 +69,38 @@ function HashDigestPreview({algorithm, input1, input2}) {
     algorithm,
     inputString: input2
   });
-  const [charEls1, charEls2] = hashDigestBits1
-    .reduce((acc, char1, idx) => {
-        const char2 = hashDigestBits2[idx];
-        const areCharsSame = char1 === char2; 
-        const charClass = clsx(
-          areCharsSame ? styles.colliding : styles.nonColliding
-        );
-        const charEl1 = 
-          <span key={idx} className={clsx(charClass)}>{char1}</span>
-        const charEl2 = 
-          <span key={idx} className={clsx(charClass)}>{char2}</span>
-        return [[...acc[0], charEl1], [...acc[1], charEl2]]
-      }, [[], []]);
-    const colorClassNames = {
-      [styles.colliding]: 'colliding bits',
-      [styles.nonColliding]: 'non-colliding bits',
-    };
-    return (
+  const hashDigestEl1 = (
+    <BitsPreview 
+      bitChars={hashDigestBits1}
+      otherBitChars={hashDigestBits2}
+    />
+  );
+  const hashDigestEl2 = (
+    <BitsPreview 
+      bitChars={hashDigestBits2}
+      otherBitChars={hashDigestBits1}
+    />
+  );
+  
+  const colorClassNames = {
+    [getClassName('colliding')]: 'colliding bits',
+    [getClassName('nonColliding')]: 'non-colliding bits',
+  };
+    
+  return (
       <div className={clsx('container', 'padding--md')}>
         <div className={clsx('row')}>
-          <div className={clsx('col col--9')}>
+          <div className={clsx('col', 'col--9')}>
             <p>
               Hash digest 1:
             </p>
-            <p>
-              <strong className={clsx(styles.hashDigest)}>
-                {charEls1}
-              </strong>
-            </p>
+            {hashDigestEl1}
             <p>
               Hash digest 2: 
             </p>
-            <p>
-              <strong className={clsx(styles.hashDigest)}>
-                {charEls2}
-              </strong>
-            </p>
+            {hashDigestEl2}
           </div>
-          <div className={clsx('col col--3')}>
+          <div className={clsx('col', 'col--3')}>
             <ColorLegend colorClassNames={colorClassNames}/> 
           </div>
         </div>
@@ -81,27 +108,36 @@ function HashDigestPreview({algorithm, input1, input2}) {
     )
 }
 
+HashDigestPreview.propTypes = {
+  algorithm: PropTypes.string.isRequired, 
+  input1: PropTypes.string.isRequired, 
+  input2: PropTypes.string.isRequired, 
+};
+
 export function HashCollisions() {
-  const [activeAlgorithm, setActiveAlgorithm] = React.useState(Object.keys(algorithms)[0]);
+  const [activeAlgorithm, setActiveAlgorithm] = 
+      React.useState(Object.keys(algorithms)[0]);
   const [input1, setInput1] = React.useState('example text 1');
   const [input2, setInput2] = React.useState('example text 2');
-  const tabs = Object.entries(algorithms).map(([algorithm, label], idx) => {
-    const isActive = algorithm === activeAlgorithm;
-    return (
-      <li 
-        className={clsx('tabs__item', {'tabs__item--active': isActive})}
-        key={idx}
-        onClick={() => setActiveAlgorithm(algorithm)}
-      >
-        {label}
-      </li>
-    );
-  });
+  const tabs = Object
+      .entries(algorithms)
+      .map(([algorithm, label], idx) => {
+          const isActive = algorithm === activeAlgorithm;
+          return (
+            <li 
+              className={clsx('tabs__item', {'tabs__item--active': isActive})}
+              key={idx}
+              onClick={() => setActiveAlgorithm(algorithm)}
+            >
+              {label}
+            </li>
+          );
+      });
 
   return (
     <Sandbox title="Hash Collisions">
       <SandboxBody>
-          <ul className={clsx('tabs tabs--block')}>
+          <ul className={clsx('tabs', 'tabs--block')}>
             {tabs}
           </ul>
           <HashDigestPreview
@@ -113,7 +149,7 @@ export function HashCollisions() {
       <SandboxControls>
         <div className={clsx('container')}>
           <div className={clsx('row')}>
-            <div className={clsx('col col--12')}>
+            <div className={clsx('col', 'col--12')}>
               <input
                 onChange={evt => setInput1(evt.target.value)}
                 placeholder="input 1"
@@ -123,7 +159,7 @@ export function HashCollisions() {
             </div>
           </div>
           <div className={clsx('row')}>
-            <div className={clsx('col col--12')}>
+            <div className={clsx('col', 'col--12')}>
               <input
                 onChange={evt => setInput2(evt.target.value)}
                 placeholder="input 2"

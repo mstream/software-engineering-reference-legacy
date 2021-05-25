@@ -78,6 +78,10 @@
             {
               "type": "fix",
               "section": "Bug Fixes"
+            },
+            {
+              "type": "refactor",
+              "hidden": true 
             }
           ]
         }

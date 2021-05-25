@@ -1,6 +1,6 @@
 {
   "name": "digital-security-reference",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -81,7 +81,7 @@
             },
             {
               "type": "refactor",
-              "hidden": true 
+              "hidden": true
             }
           ]
         }

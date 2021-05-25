@@ -4,21 +4,30 @@ const path = require('path');
 const rehypeKatex = require('rehype-katex');
 const remarkMath = require('remark-math');
 
+const defaultLocale = 'en';
+const organizationName = 'mstream';
+const projectName = 'software-engineering-reference';
+const websiteTitle = 'Software Engineering Reference';
+
 module.exports = {
-  baseUrl: '/software-engineering-reference/',
-  clientModules: [  require.resolve('./src/globals.js')],
+  baseUrl: `/${projectName}/`,
+  clientModules: [
+    require.resolve('./src/globals.js')
+  ],
   favicon: 'img/favicon.ico',
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale,
+    locales: [
+      defaultLocale
+    ],
   },
-  projectName: 'software-development-reference',
+  projectName,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes:'throw',
-  organizationName: 'mstream',
-  title: 'Software Development Reference',
-  url: 'https://mstream.github.io/software-development-reference',
+  organizationName,
+  title: websiteTitle,
+  url: `https://${organizationName}.github.io/${projectName}`,
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
@@ -31,7 +40,11 @@ module.exports = {
     },
     hideableSidebar: false,
     navbar: {
-      title: 'Software Development Reference',
+      logo: {
+        alt: `${websiteTitle} Logo`,
+        src: 'img/apple-touch-icon.png',
+      },
+      title: websiteTitle,
     },
     prism: {
       additionalLanguages: [
@@ -52,7 +65,10 @@ module.exports = {
         include: ['**/*.mdx'],
         path: 'docs',
         rehypePlugins: [
-          [rehypeKatex, {output: 'mathml', throwOnError: true}]
+          [
+            rehypeKatex, 
+            {output: 'mathml', throwOnError: true}
+          ],
         ],
         remarkPlugins: [
           remarkMath,

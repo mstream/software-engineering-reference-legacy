@@ -1,3 +1,10 @@
+### [1.4.2](https://github.com/mstream/software-engineering-reference/compare/1.4.1...1.4.2) (2021-05-25)
+
+
+### Bug Fixes
+
+* expand supported browsers list ([d6fecd2](https://github.com/mstream/software-engineering-reference/commit/d6fecd2af06c0c272e839eb43a324a4bb28dca84))
+
 ### [1.4.1](https://github.com/mstream/software-engineering-reference/compare/1.4.0...1.4.1) (2021-05-25)
 
 ## [1.4.0](https://github.com/mstream/software-engineering-reference/compare/1.3.0...1.4.0) (2021-05-25)
